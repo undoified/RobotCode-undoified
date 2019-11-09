@@ -29,6 +29,8 @@ public class RobotMap {
   //DIO
   
   //CAN
-
-  //test
+  public static int leftMasterMotor = 1;
+  public static int leftSlaveMotor = 2;
+  public static int rightMasterMotor = 3;
+  public static int rightSlaveMotor = 4;
 }
