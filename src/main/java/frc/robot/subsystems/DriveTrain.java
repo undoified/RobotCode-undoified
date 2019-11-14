@@ -9,7 +9,12 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+
 import frc.robot.RobotMap;
+import frc.robot.Robot;
+import frc.robot.commands.DriveRobot;
 
 /**
  * DRIVE TRAIN
@@ -21,15 +26,26 @@ public class DriveTrain extends Subsystem {
   // here. Call these from Commands.
 
   //Create motor controller objects
-  private VictorSP leftMaster = new VictorSP(RobotMap.leftMasterMotor);
-  private VictorSP leftSlave = new VictorSP(RobotMap.leftSlaveMotor);
-  private VictorSP rightMaster = new VictorSP(RobotMap.rightMasterMotor);
-  private VictorSP rightSlave = new VictorSP(RobotMap.rightSlaveMotor);
+  private VictorSP leftFrontMotor = new VictorSP(RobotMap.leftFrontMotor);
+  private VictorSP leftBackMotor = new VictorSP(RobotMap.leftBackMotor);
+  private VictorSP rightFrontMotor = new VictorSP(RobotMap.rightFrontMotor);
+  private VictorSP rightBackMotor = new VictorSP(RobotMap.rightBackMotor);
+
+  private SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontMotor, leftBackMotor);
+  private SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontMotor, rightBackMotor);
+
+  private DifferentialDrive arcadeDrive = new DifferentialDrive(leftMotors, rightMotors);
+
+  public void moveArcadeDrive(double movementSpeed, double turningSpeed){
+    arcadeDrive.arcadeDrive(movementSpeed, turningSpeed);
+  }
+
 
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new DriveRobot());
   }
 }
