@@ -30,8 +30,9 @@ public class DriveRobot extends Command {
   protected void execute() {
     //Get turning (left and right) and movement (forward and backwards) values from the joystick
     double joystickMovementSpeed = Robot.oi.joystick.getY();
-    double joystickTurnSpeed = Robot.oi.joystick.getX();
-    Robot.driveTrain.moveArcadeDrive(joystickMovementSpeed, joystickTurnSpeed);
+    double joystickStrafeSpeed = Robot.oi.joystick.getX();
+    double joystickTurnSpeed = Robot.oi.joystick.getZ();
+    Robot.driveTrain.moveMecanumDrive(joystickMovementSpeed, joystickStrafeSpeed, joystickTurnSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

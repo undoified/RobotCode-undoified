@@ -10,7 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 import frc.robot.RobotMap;
 import frc.robot.Robot;
@@ -31,13 +31,10 @@ public class DriveTrain extends Subsystem {
   private VictorSP rightFrontMotor = new VictorSP(RobotMap.rightFrontMotor);
   private VictorSP rightBackMotor = new VictorSP(RobotMap.rightBackMotor);
 
-  private SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontMotor, leftBackMotor);
-  private SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontMotor, rightBackMotor);
+  private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
-  private DifferentialDrive arcadeDrive = new DifferentialDrive(leftMotors, rightMotors);
-
-  public void moveArcadeDrive(double movementSpeed, double turningSpeed){
-    arcadeDrive.arcadeDrive(movementSpeed, turningSpeed);
+  public void moveMecanumDrive(double movementSpeed, double strafeSpeed, double turningSpeed){
+    mecanumDrive.driveCartesian(movementSpeed, strafeSpeed, turningSpeed);
   }
 
 
