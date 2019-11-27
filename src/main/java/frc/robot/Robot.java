@@ -42,12 +42,6 @@ public class Robot extends TimedRobot {
     oi = new OI();
     chooser.addDefault("Default Auto", new DriveRobot());
 
-    //chooser.addDefault("Default Auto", new ClawClose());
-    //chooser.addDefault("Default Autp", new ClawOpen());
-    
-    //chooser.addOption("Default Auto", new DriveRobot());
-    //chooser.addOption("Default Auto", new ClawClose());
-    //chooser.addOption("Default Auto", new ClawOpen());
   }
 
   /**

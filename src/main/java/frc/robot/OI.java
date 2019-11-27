@@ -49,8 +49,8 @@ public class OI {
 
   public Joystick joystick = new Joystick(0);
 
-  Button openClawButton = new JoystickButton(joystick, 4);
-  Button closeClawButton = new JoystickButton(joystick, 5);
+  Button openClawButton = new JoystickButton(joystick, 5);
+  Button closeClawButton = new JoystickButton(joystick, 3);
 
   public OI(){
     closeClawButton.whenPressed(new ClawClose());

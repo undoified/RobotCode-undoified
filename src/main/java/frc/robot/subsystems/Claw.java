@@ -28,10 +28,12 @@ public class Claw extends Subsystem {
 
   public void clawOpen(){
     clawPulleyServo.set(clawPulleyServo.getPosition() + distance);
+    
   }
 
   public void clawClose(){
     clawPulleyServo.set(clawPulleyServo.getPosition() - distance);
+  
   }
   @Override
   public void initDefaultCommand() {
