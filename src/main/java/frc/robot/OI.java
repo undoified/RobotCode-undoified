@@ -8,6 +8,11 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
+import frc.robot.commands.ClawOpen;
+import frc.robot.commands.ClawClose;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -43,4 +48,14 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
+
+  Button openClawButton = new JoystickButton(joystick, 5);
+  Button closeClawButton = new JoystickButton(joystick, 3);
+
+  public OI(){
+    closeClawButton.whenPressed(new ClawClose());
+    openClawButton.whenPressed(new ClawOpen());
+  }
+
+  
 }

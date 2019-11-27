@@ -14,6 +14,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.commands.DriveRobot;
+import frc.robot.subsystems.Claw;
+import frc.robot.commands.ClawOpen;
+import frc.robot.commands.ClawClose;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -24,6 +27,7 @@ import frc.robot.commands.DriveRobot;
  */
 public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
+  public static Claw claw = new Claw();
   public static OI oi;
 
   Command autonomousCommand;
@@ -37,7 +41,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     oi = new OI();
     chooser.addDefault("Default Auto", new DriveRobot());
-    // chooser.addOption("My Auto", new MyAutoCommand());
+
   }
 
   /**
