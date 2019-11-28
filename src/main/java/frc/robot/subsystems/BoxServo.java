@@ -15,24 +15,24 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class Claw extends Subsystem {
+public class BoxServo extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private Servo clawPulleyServo = new Servo(RobotMap.clawPulleyServo);
+  private Servo boxServo = new Servo(RobotMap.boxServo);
   //The amount added to the current postition of the servo
-  private double distance = 180;
-
-  public Claw(){
+  private double boxServoDistance = 180;
+  
+  public BoxServo(){
 
   }
 
-  public void clawOpen(){
-    clawPulleyServo.set(clawPulleyServo.getPosition() + distance);
+  public void boxOpen(){
+    boxServo.set(boxServo.getPosition() + boxServoDistance);
     
   }
 
-  public void clawClose(){
-    clawPulleyServo.set(clawPulleyServo.getPosition() - distance);
+  public void boxClose(){
+    boxServo.set(boxServo.getPosition() - boxServoDistance);
   
   }
   @Override
