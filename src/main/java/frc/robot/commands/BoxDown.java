@@ -10,8 +10,8 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class BoxOpen extends Command {
-  public BoxOpen() {
+public class BoxDown extends Command {
+  public BoxDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.boxServo);
@@ -25,7 +25,7 @@ public class BoxOpen extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.boxServo.boxOpen();
+    Robot.boxServo.boxDown();
   }
 
   // Make this return true when this Command no longer needs to run execute()

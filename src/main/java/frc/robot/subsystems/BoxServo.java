@@ -21,17 +21,17 @@ public class BoxServo extends Subsystem {
   private Servo boxServo = new Servo(RobotMap.boxServo);
   //The amount added to the current postition of the servo
   private double boxServoDistance = 180;
-  
+
   public BoxServo(){
 
   }
 
-  public void boxOpen(){
+  public void boxUp(){
     boxServo.set(boxServo.getPosition() + boxServoDistance);
     
   }
 
-  public void boxClose(){
+  public void boxDown(){
     boxServo.set(boxServo.getPosition() - boxServoDistance);
   
   }

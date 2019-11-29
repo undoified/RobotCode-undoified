@@ -18,8 +18,8 @@ import frc.robot.subsystems.RakeServo;
 import frc.robot.commands.RakeUp;
 import frc.robot.commands.RakeDown;
 import frc.robot.subsystems.BoxServo;
-import frc.robot.commands.BoxOpen;
-import frc.robot.commands.BoxClose;
+import frc.robot.commands.BoxUp;
+import frc.robot.commands.BoxDown;
 
 /**
  * The VM is configured to automatically run this class, and to call the

@@ -14,8 +14,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.RakeUp;
 import frc.robot.commands.RakeDown;
 
-import frc.robot.commands.BoxOpen;
-import frc.robot.commands.BoxClose;
+import frc.robot.commands.BoxUp;
+import frc.robot.commands.BoxDown;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -62,8 +62,8 @@ public class OI {
     upRakeButton.whenPressed(new RakeUp());
     downRakeButton.whenPressed(new RakeDown());
 
-    openBoxButton.whenPressed(new BoxOpen());
-    closeBoxButton.whenPressed(new BoxClose());
+    openBoxButton.whenPressed(new BoxUp());
+    closeBoxButton.whenPressed(new BoxDown());
   }
 
   
