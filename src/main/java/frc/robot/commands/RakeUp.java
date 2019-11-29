@@ -9,11 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-public class ClawClose extends Command {
-  public ClawClose() {
+
+public class RakeUp extends Command {
+  public RakeUp() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.claw);
+    requires(Robot.rakeServo);
   }
 
   // Called just before this Command runs the first time
@@ -24,13 +25,14 @@ public class ClawClose extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.claw.clawClose();
+    Robot.rakeServo.rakeUp();
+    System.out.println("Rake servo up");
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

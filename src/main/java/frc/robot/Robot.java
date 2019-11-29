@@ -14,9 +14,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.commands.DriveRobot;
-import frc.robot.subsystems.Claw;
-import frc.robot.commands.ClawOpen;
-import frc.robot.commands.ClawClose;
+import frc.robot.subsystems.RakeServo;
+import frc.robot.commands.RakeUp;
+import frc.robot.commands.RakeDown;
+import frc.robot.subsystems.BoxServo;
+import frc.robot.commands.BoxUp;
+import frc.robot.commands.BoxDown;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -27,7 +30,8 @@ import frc.robot.commands.ClawClose;
  */
 public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
-  public static Claw claw = new Claw();
+  public static RakeServo rakeServo = new RakeServo();
+  public static BoxServo boxServo = new BoxServo();
   public static OI oi;
 
   Command autonomousCommand;
