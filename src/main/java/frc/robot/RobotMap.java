@@ -35,5 +35,4 @@ public class RobotMap {
   public static int leftBackMotor = 1;
 
   public static int rakeServo = 7;
-  public static int boxServo = 5;
 }
