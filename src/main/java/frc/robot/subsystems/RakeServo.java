@@ -19,22 +19,37 @@ public class RakeServo extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private Servo rakeServo = new Servo(RobotMap.rakeServo);
-  //The amount added to the current postition of the servo
-  private double rakeServoDistance = 110;
+  //The current position, or stage, the rake is in.
+  public int stage = 1;
 
   public RakeServo(){
+    //Reset the stage when the robot is turned on.
     rakeServo.setAngle(0);
   }
-
-  public void rakeUp(){
-    rakeServo.setAngle(rakeServo.getAngle() + rakeServoDistance);
-    
-  }
-
-  public void rakeDown(){
-    rakeServo.setAngle(rakeServo.getAngle() - rakeServoDistance);
   
+  public void changeStage() {
+    switch(stage) {
+      case 1:
+        rakeServo.setAngle(0);
+        break;
+      case 2:
+        rakeServo.setAngle(60);
+        break;
+      case 3:
+        rakeServo.setAngle(100);
+        break;
+      default:
+        //If the stage values are to big or small reset the values to a valid stage and do nothing.
+        if (stage > 3) {
+          stage = 3;
+        }
+        if (stage < 0) {
+          stage = 0;
+        }
+        break;
+    }
   }
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
