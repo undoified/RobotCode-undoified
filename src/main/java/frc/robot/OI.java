@@ -48,7 +48,7 @@ public class OI {
 
   public Joystick joystick = new Joystick(0);
 
-  Button rakeUpButton = new JoystickButton(joystick, 5);
+  Button rakeUpButton = new JoystickButton(joystick, 1);
   Button rakeDownButton = new JoystickButton(joystick, 3);
 
   public OI(){
