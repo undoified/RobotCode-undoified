@@ -20,11 +20,11 @@ public class RakeServo extends Subsystem {
   // here. Call these from Commands.
   private Servo rakeServo = new Servo(RobotMap.rakeServo);
   //The current position, or stage, the rake is in.
-  public int stage = 1;
+  public int stage = 2;
 
   public RakeServo(){
     //Reset the stage when the robot is turned on.
-    rakeServo.setAngle(0);
+    rakeServo.setAngle(60);
   }
   
   public void changeStage() {
