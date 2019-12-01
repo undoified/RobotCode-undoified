@@ -15,24 +15,24 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class RakeServo extends Subsystem {
+public class BoxServo extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private Servo rakeServo = new Servo(RobotMap.rakeServo);
+  private Servo boxServo = new Servo(RobotMap.boxServo);
   //The amount added to the current postition of the servo
-  private double rakeServoDistance = 110;
+  private double boxServoDistance = 90;
 
-  public RakeServo(){
-    rakeServo.setAngle(0);
+  public BoxServo(){
+    boxServo.setAngle(0);
   }
 
-  public void rakeUp(){
-    rakeServo.setAngle(rakeServo.getAngle() + rakeServoDistance);
+  public void boxUp(){
+    boxServo.setAngle(boxServo.getAngle() + boxServoDistance);
     
   }
 
-  public void rakeDown(){
-    rakeServo.setAngle(rakeServo.getAngle() - rakeServoDistance);
+  public void boxDown(){
+    boxServo.setAngle(boxServo.getAngle() - boxServoDistance);
   
   }
   @Override

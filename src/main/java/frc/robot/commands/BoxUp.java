@@ -10,11 +10,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class RakeFling extends Command {
-  public RakeFling() {
+public class BoxUp extends Command {
+  public BoxUp() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.rakeServo);
+    requires(Robot.boxServo);
   }
 
   // Called just before this Command runs the first time
@@ -25,13 +25,13 @@ public class RakeFling extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.rakeServo.rakeFling();
+    Robot.boxServo.boxUp();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
