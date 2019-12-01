@@ -10,12 +10,12 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import frc.robot.commands.RakeBottom;
+import frc.robot.commands.RakeCarry;
+import frc.robot.commands.RakeFling;
 
-import frc.robot.commands.RakeUp;
-import frc.robot.commands.RakeDown;
 
-import frc.robot.commands.BoxUp;
-import frc.robot.commands.BoxDown;
+
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -52,18 +52,15 @@ public class OI {
 
   public Joystick joystick = new Joystick(0);
 
-  Button upRakeButton = new JoystickButton(joystick, 5);
-  Button downRakeButton = new JoystickButton(joystick, 3);
-
-  Button openBoxButton = new JoystickButton(joystick, 6);
-  Button closeBoxButton = new JoystickButton(joystick, 4);
+  Button rakeBottomButton = new JoystickButton(joystick, 5);
+  Button rakeCarryButton = new JoystickButton(joystick, 3);
+  Button rakeFlingBottom = new JoystickButton(joystick, 1);
 
   public OI(){
-    upRakeButton.whenPressed(new RakeUp());
-    downRakeButton.whenPressed(new RakeDown());
+    rakeBottomButton.whenPressed(new RakeBottom());
+    rakeCarryButton.whenPressed(new RakeCarry());
+    rakeFlingButton.whenPressed(new RakeFling());
 
-    openBoxButton.whenPressed(new BoxUp());
-    closeBoxButton.whenPressed(new BoxDown());
   }
 
   

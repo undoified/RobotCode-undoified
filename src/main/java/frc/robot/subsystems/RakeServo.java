@@ -20,20 +20,24 @@ public class RakeServo extends Subsystem {
   // here. Call these from Commands.
   private Servo rakeServo = new Servo(RobotMap.rakeServo);
   //The amount added to the current postition of the servo
-  private double rakeServoDistance = 110;
+  //private double rakeServoDistance = 70;
 
   public RakeServo(){
+    //rakeServo.setAngle(80);
+  }
+
+  public void rakeBottom(){
+    //rakeServo.setAngle(rakeServo.getAngle() + rakeServoDistance);
     rakeServo.setAngle(0);
   }
 
-  public void rakeUp(){
-    rakeServo.setAngle(rakeServo.getAngle() + rakeServoDistance);
-    
+  public void rakeCarry(){
+    //rakeServo.setAngle(rakeServo.getAngle() - rakeServoDistance);
+    rakeServo.setAngle(60);
   }
 
-  public void rakeDown(){
-    rakeServo.setAngle(rakeServo.getAngle() - rakeServoDistance);
-  
+  public void rakeFling(){
+    rakeServo.setAngle(100);
   }
   @Override
   public void initDefaultCommand() {
