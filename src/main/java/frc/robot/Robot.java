@@ -41,6 +41,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     oi = new OI();
     chooser.addDefault("Default Auto", new DriveRobot());
+    //SmartDashboard.putNumber("Servo Angle", rakeServo.getArmAngle());
 
   }
 
@@ -112,6 +113,7 @@ public class Robot extends TimedRobot {
     // teleop starts running. If you want the autonomous to
     // continue until interrupted by another command, remove
     // this line or comment it out.
+    
     if (autonomousCommand != null) {
       autonomousCommand.cancel();
     }
@@ -123,6 +125,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putNumber("Servo Angle", rakeServo.getArmAngle());
+    SmartDashboard.putNumber("Stage", rakeServo.getStage());
   }
 
   /**
