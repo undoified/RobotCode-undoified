@@ -123,6 +123,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putNumber("Servo Angle", rakeServo.getArmAngle());
+    SmartDashboard.putNumber("Stage", rakeServo.getStage());
   }
 
   /**
