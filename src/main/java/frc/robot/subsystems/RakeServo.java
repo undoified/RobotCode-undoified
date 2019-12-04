@@ -20,23 +20,23 @@ public class RakeServo extends Subsystem {
   // here. Call these from Commands.
   private Servo rakeServo = new Servo(RobotMap.rakeServo);
   //The current position, or stage, the rake is in.
-  public int stage = 2;
+  public int stage = 1;
 
   public RakeServo(){
     //Reset the stage when the robot is turned on.
-    rakeServo.setAngle(40);
+    rakeServo.setAngle(0);
   }
   
   public void changeStage() {
     switch(stage) {
       case 1:
-        rakeServo.setAngle(100);
+        rakeServo.setAngle(0);
         break;
       case 2:
-        rakeServo.setAngle(40);
+        rakeServo.setAngle(60);
         break;
       case 3:
-        rakeServo.setAngle(0);
+        rakeServo.setAngle(100);
         break;
       default:
         //If the stage values are to big or small reset the values to a valid stage and do nothing.
@@ -48,14 +48,6 @@ public class RakeServo extends Subsystem {
         }
         break;
     }
-  }
-
-  public double getArmAngle(){
-    return rakeServo.getAngle();
-  }
-
-  public int getStage(){
-    return stage;
   }
   
   @Override

@@ -24,24 +24,16 @@ public class RakeDown extends Command {
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  /*protected void execute() {
-    //Move down 1 stage
-    Robot.rakeServo.stage--;
-    Robot.rakeServo.changeStage();
-  }*/
   protected void execute() {
     //Move down 1 stage
     Robot.rakeServo.stage--;
-    if (Robot.rakeServo.stage == 2) {
-      Robot.rakeServo.stage--;
-    }
     Robot.rakeServo.changeStage();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return true;
+    return false;
   }
 
   // Called once after isFinished returns true
