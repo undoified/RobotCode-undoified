@@ -29,7 +29,7 @@ public class RakeDown extends Command {
     Robot.rakeServo.stage--;
     if (Robot.rakeServo.stage == 2) {
       Robot.rakeServo.stage--;
-    }
+  }
     Robot.rakeServo.changeStage();
   }
 

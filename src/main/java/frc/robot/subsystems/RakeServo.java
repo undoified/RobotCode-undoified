@@ -9,6 +9,8 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Servo;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import frc.robot.RobotMap;
 
@@ -21,6 +23,7 @@ public class RakeServo extends Subsystem {
   private Servo rakeServo = new Servo(RobotMap.rakeServo);
   //The current position, or stage, the rake is in.
   public int stage = 2;
+  public int downAngle = 10;
 
   public RakeServo(){
     //Reset the stage when the robot is turned on.
@@ -30,7 +33,13 @@ public class RakeServo extends Subsystem {
   public void changeStage() {
     switch(stage) {
       case 1:
-        rakeServo.setAngle(100);
+        while (downAngle <= 100){
+          rakeServo.setAngle(downAngle);
+          Timer.delay(0.09);
+          SmartDashboard.putNumber("Down Angle", downAngle);
+          downAngle = downAngle + 10;
+        };
+        downAngle = 10;
         break;
       case 2:
         rakeServo.setAngle(40);
@@ -49,12 +58,17 @@ public class RakeServo extends Subsystem {
         break;
     }
   }
+
   public double getArmAngle(){
     return rakeServo.getAngle();
   }
 
   public int getStage(){
     return stage;
+  }
+
+  public int getDownAngle(){
+    return downAngle;
   }
   
   @Override
