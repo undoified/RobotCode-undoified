@@ -13,10 +13,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import frc.robot.commands.RakeUp;
 import frc.robot.commands.RakeDown;
-
-import frc.robot.commands.BoxUp;
-import frc.robot.commands.BoxDown;
-
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -52,18 +48,12 @@ public class OI {
 
   public Joystick joystick = new Joystick(0);
 
-  Button upRakeButton = new JoystickButton(joystick, 5);
-  Button downRakeButton = new JoystickButton(joystick, 3);
-
-  Button openBoxButton = new JoystickButton(joystick, 6);
-  Button closeBoxButton = new JoystickButton(joystick, 4);
+  Button rakeUpButton = new JoystickButton(joystick, 1);
+  Button rakeDownButton = new JoystickButton(joystick, 3);
 
   public OI(){
-    upRakeButton.whenPressed(new RakeUp());
-    downRakeButton.whenPressed(new RakeDown());
-
-    openBoxButton.whenPressed(new BoxUp());
-    closeBoxButton.whenPressed(new BoxDown());
+    rakeUpButton.whenPressed(new RakeUp());
+    rakeDownButton.whenPressed(new RakeDown());
   }
 
   

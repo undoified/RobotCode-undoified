@@ -25,8 +25,9 @@ public class RakeUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.rakeServo.rakeUp();
-    System.out.println("Rake servo up");
+    //Move up 1 stage
+    Robot.rakeServo.stage++;
+    Robot.rakeServo.changeStage();
   }
 
   // Make this return true when this Command no longer needs to run execute()
