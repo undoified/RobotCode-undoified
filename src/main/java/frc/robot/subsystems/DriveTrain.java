@@ -34,7 +34,7 @@ public class DriveTrain extends Subsystem {
 
   //This is not the order from the documetation, 
   //but through trial and error this is the only way that it works
-  private MecanumDrive mecanumDrive = new MecanumDrive(rightBackMotor, rightFrontMotor, leftBackMotor, leftFrontMotor);
+  private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
   public DriveTrain() {
   

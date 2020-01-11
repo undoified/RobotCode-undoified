@@ -29,10 +29,8 @@ public class RobotMap {
   //DIO
   
   //PWM
-  public static int rightFrontMotor = 3;
-  public static int rightBackMotor = 0;
+  public static int rightFrontMotor = 0;
+  public static int rightBackMotor = 1;
   public static int leftFrontMotor = 2;
-  public static int leftBackMotor = 1;
-
-  public static int rakeServo = 6;
+  public static int leftBackMotor = 3;
 }
