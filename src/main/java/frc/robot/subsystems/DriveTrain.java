@@ -8,9 +8,10 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 
 import frc.robot.RobotMap;
 import frc.robot.Robot;
@@ -27,17 +28,21 @@ public class DriveTrain extends Subsystem {
 
   //Create motor controller objects
   private VictorSP leftFrontMotor = new VictorSP(RobotMap.leftFrontMotor);
-  private VictorSP leftBackMotor = new VictorSP(RobotMap.leftBackMotor);
+  private PWMVictorSPX leftBackMotor = new PWMVictorSPX(RobotMap.leftBackMotor);
   private VictorSP rightFrontMotor = new VictorSP(RobotMap.rightFrontMotor);
-  private VictorSP rightBackMotor = new VictorSP(RobotMap.rightBackMotor);
+  private PWMVictorSPX rightBackMotor = new PWMVictorSPX(RobotMap.rightBackMotor);
 
-  private SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontMotor, leftBackMotor);
-  private SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontMotor, rightBackMotor);
+  //This is not the order from the documetation, 
+  //but through trial and error this is the only way that it works
+  private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
-  private DifferentialDrive arcadeDrive = new DifferentialDrive(leftMotors, rightMotors);
+  public DriveTrain() {
+  
+  }
 
-  public void moveArcadeDrive(double movementSpeed, double turningSpeed){
-    arcadeDrive.arcadeDrive(movementSpeed, turningSpeed);
+
+  public void moveMecanumDrive(double movementSpeed, double strafeSpeed, double turningSpeed){
+    mecanumDrive.driveCartesian(-strafeSpeed, movementSpeed, turningSpeed);
   }
 
 
