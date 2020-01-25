@@ -8,13 +8,12 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.PWMVictorSPX;
-import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.SpeedController;
 
 import frc.robot.RobotMap;
-import frc.robot.Robot;
+//import frc.robot.Robot;
 import frc.robot.commands.DriveRobot;
 
 /**
@@ -27,17 +26,18 @@ public class DriveTrain extends Subsystem {
   // here. Call these from Commands.
 
   //Create motor controller objects
-  private VictorSP leftFrontMotor = new VictorSP(RobotMap.leftFrontMotor);
-  private PWMVictorSPX leftBackMotor = new PWMVictorSPX(RobotMap.leftBackMotor);
-  private VictorSP rightFrontMotor = new VictorSP(RobotMap.rightFrontMotor);
-  private PWMVictorSPX rightBackMotor = new PWMVictorSPX(RobotMap.rightBackMotor);
+  private WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(RobotMap.leftFrontMotor);
+  private WPI_TalonSRX leftBackMotor = new WPI_TalonSRX(RobotMap.leftBackMotor);
+  private WPI_TalonSRX rightFrontMotor = new WPI_TalonSRX(RobotMap.rightFrontMotor);
+  private WPI_TalonSRX rightBackMotor = new WPI_TalonSRX(RobotMap.rightBackMotor);
 
-  //This is not the order from the documetation, 
-  //but through trial and error this is the only way that it works
   private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
   public DriveTrain() {
-  
+  leftFrontMotor.setInverted(true);
+  leftBackMotor.setInverted(true);
+  rightFrontMotor.setInverted(true);
+  rightBackMotor.setInverted(true);
   }
 
 
