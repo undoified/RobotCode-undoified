@@ -27,6 +27,7 @@ public class RobotMap {
   //CAN
 
   //DIO
+  public static int[] encoderPorts = {0, 1};
   
   //PWM
   public static int rightFrontMotor = 0;
