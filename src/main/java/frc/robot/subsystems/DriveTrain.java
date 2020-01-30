@@ -28,6 +28,8 @@ public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
+  private static Double wheelDiameter = 6.0/12.0;
+
   //Create encoder objects
   private Encoder driveEncoder = new Encoder(RobotMap.encoderPorts[0], RobotMap.encoderPorts[1], false, Encoder.EncodingType.k4X);
 
@@ -40,8 +42,8 @@ public class DriveTrain extends Subsystem {
   private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
   public DriveTrain() {
-    //The distance per pulse used here is a placeholder.
-    driveEncoder.setDistancePerPulse(1./256.);
+    //The distance per pulse used here is for the am-3749 encoder.
+    driveEncoder.setDistancePerPulse(wheelDiameter*3.14/1024);
   }
 
 
