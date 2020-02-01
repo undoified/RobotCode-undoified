@@ -31,7 +31,7 @@ public class DriveTrain extends Subsystem {
   private static Double wheelDiameter = 6.0/12.0;
 
   //Create encoder objects
-  private Encoder driveEncoder = new Encoder(RobotMap.encoderPorts[0], RobotMap.encoderPorts[1], false, Encoder.EncodingType.k4X);
+  public Encoder driveEncoder = new Encoder(RobotMap.encoderPorts[0], RobotMap.encoderPorts[1], false, Encoder.EncodingType.k4X);
 
   //Create motor controller objects
   private VictorSP leftFrontMotor = new VictorSP(RobotMap.leftFrontMotor);
@@ -47,15 +47,16 @@ public class DriveTrain extends Subsystem {
   }
 
 
-  public void moveMecanumDrive(double movementSpeed, double strafeSpeed, double turningSpeed){
+  public void moveMecanumDrive(double movementSpeed, double strafeSpeed, double turningSpeed) {
     mecanumDrive.driveCartesian(-strafeSpeed, movementSpeed, turningSpeed);
   }
 
   public void driveToPoint(String direction, double distance, double speed) {
+    driveEncoder.reset();
     switch (direction) {
       case "forward":
         while (driveEncoder.getDistance() < distance) {
-          mecanumDrive.drivePolar(speed, 0, speed);
+          moveMecanumDrive(speed, 0, 0);
         }
         driveEncoder.reset();
         break;

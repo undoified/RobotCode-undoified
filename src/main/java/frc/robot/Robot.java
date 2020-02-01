@@ -26,8 +26,8 @@ import frc.robot.commands.DriveAcrossLine;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static DriveAcrossLine driveAcrossLine = new DriveAcrossLine();
   public static DriveTrain driveTrain = new DriveTrain();
+  public static DriveAcrossLine driveAcrossLine = new DriveAcrossLine();
   public static OI oi;
 
   Command autonomousCommand;
@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    chooser.addDefault("Default Auto", new DriveAcrossLine());
+    //chooser.addDefault("Default Auto", new DriveAcrossLine());
   }
 
   /**
@@ -53,6 +53,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    SmartDashboard.putNumber("Encoder Distance", driveTrain.driveEncoder.getDistance());
   }
 
   /**
