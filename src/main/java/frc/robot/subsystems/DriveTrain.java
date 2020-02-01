@@ -23,7 +23,7 @@ import frc.robot.commands.DriveRobot;
 /**
  * DRIVE TRAIN
  * 
- * A basic arcade drive subsytem.
+ * A basic mecanum drive subsytem.
  */
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
@@ -92,12 +92,19 @@ public class DriveTrain extends Subsystem {
     }
   }
 
-  public void turnRobot(String direction, double angle) {
+  public void turnRobot(String direction, double angle, double speed) {
+    imu.reset();
     switch (direction) {
       case "left":
+          while (angle < imu.getAngle()) {
+            moveMecanumDrive(0, 0, speed);
+          }
         break;
 
       case "right":
+        while (angle < imu.getAngle()) {
+          moveMecanumDrive(0, 0, -speed);
+        }
         break;
 
       default:

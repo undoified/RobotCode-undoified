@@ -23,8 +23,7 @@ public class DriveAcrossLine extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //Robot.driveTrain.driveToPoint("forward", 20.0, 0.1);
-    Robot.driveTrain.imu.getAngle();
+    Robot.driveTrain.turnRobot("right", 90, 0.1);
   }
 
   // Make this return true when this Command no longer needs to run execute()
