@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.DriverStation;
+import com.analog.adis16470.frc.ADIS16470_IMU;
 
 import frc.robot.RobotMap;
 import frc.robot.Robot;
@@ -29,6 +30,9 @@ public class DriveTrain extends Subsystem {
   // here. Call these from Commands.
 
   private static Double wheelDiameter = 6.0/12.0;
+
+  //Create IMU object
+  public ADIS16470_IMU imu = new ADIS16470_IMU();
 
   //Create encoder objects
   public Encoder driveEncoder = new Encoder(RobotMap.encoderPorts[0], RobotMap.encoderPorts[1], false, Encoder.EncodingType.k4X);
@@ -63,27 +67,41 @@ public class DriveTrain extends Subsystem {
 
       case "backward":
         while (driveEncoder.getDistance() < distance) {
-          mecanumDrive.drivePolar(speed, 180, speed);
+          moveMecanumDrive(-speed, 0, 0);
         }
         driveEncoder.reset();
         break;
 
       case "left":
         while (driveEncoder.getDistance() < distance) {
-          mecanumDrive.drivePolar(speed, 90, speed);
+          moveMecanumDrive(0, speed, 0);
         }
         driveEncoder.reset();
         break;
 
       case "right":
         while (driveEncoder.getDistance() < distance) {
-          mecanumDrive.drivePolar(speed, -90, speed);
+          moveMecanumDrive(0, -speed, 0);
         }
         driveEncoder.reset();
         break;
 
       default:
         DriverStation.reportError("That is not a valid direction! Use 'forward', 'backward', 'left', or 'right'.", true);
+        break;
+    }
+  }
+
+  public void turnRobot(String direction, double angle) {
+    switch (direction) {
+      case "left":
+        break;
+
+      case "right":
+        break;
+
+      default:
+        DriverStation.reportError("That is not a valid direction! Use left', or 'right'.", true);
         break;
     }
   }
