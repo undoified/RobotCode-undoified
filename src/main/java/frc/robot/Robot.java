@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 //import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.commands.DriveRobot;
+import frc.robot.commands.DriveAcrossLine;
 //import frc.robot.commands.RakeUp;
 //import frc.robot.commands.RakeDown;
 
@@ -26,6 +27,7 @@ import frc.robot.commands.DriveRobot;
  */
 public class Robot extends TimedRobot {
   public static DriveTrain driveTrain = new DriveTrain();
+  public static DriveAcrossLine driveAcrossLine = new DriveAcrossLine();
   public static OI oi;
 
   Command autonomousCommand;
@@ -40,7 +42,6 @@ public class Robot extends TimedRobot {
     oi = new OI();
     //chooser.addDefault("Default Auto", new DriveRobot());
     chooser.setDefaultOption("Default Auto", new DriveRobot());
-
   }
 
   /**
@@ -53,6 +54,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    SmartDashboard.putNumber("Encoder Distance", driveTrain.driveEncoder.getDistance());
   }
 
   /**
