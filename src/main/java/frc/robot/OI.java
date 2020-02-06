@@ -47,7 +47,7 @@ public class OI {
   // button.whenReleased(new ExampleCommand());
 
   public Joystick joystick = new Joystick(0);
-  private Button encoderTestButton = new JoystickButton(joystick, 2);
+  private Button encoderTestButton = new JoystickButton(joystick, 7);
 
   public OI(){
     encoderTestButton.whenPressed(new DriveAcrossLine());

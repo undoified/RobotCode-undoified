@@ -46,8 +46,8 @@ public class DriveTrain extends Subsystem {
   private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
   public DriveTrain() {
-    //The distance per pulse used here is for the am-3749 encoder.
-    driveEncoder.setDistancePerPulse(wheelDiameter*3.14/1024);
+    //The distance per pulse used here is for the REV-11-1271 encoder.
+    driveEncoder.setDistancePerPulse(wheelDiameter*3.14/2048);
   }
 
 
@@ -58,29 +58,30 @@ public class DriveTrain extends Subsystem {
   public void driveToPoint(String direction, double distance, double speed) {
     driveEncoder.reset();
     switch (direction) {
+      //The left and right speed values may be incorrect
       case "forward":
-        while (driveEncoder.getDistance() < distance) {
+        while (Math.abs(driveEncoder.getDistance()) < distance) {
           moveMecanumDrive(speed, 0, 0);
         }
         driveEncoder.reset();
         break;
 
       case "backward":
-        while (driveEncoder.getDistance() < distance) {
+        while (Math.abs(driveEncoder.getDistance()) < distance) {
           moveMecanumDrive(-speed, 0, 0);
         }
         driveEncoder.reset();
         break;
 
       case "left":
-        while (driveEncoder.getDistance() < distance) {
+        while (Math.abs(driveEncoder.getDistance()) < distance) {
           moveMecanumDrive(0, speed, 0);
         }
         driveEncoder.reset();
         break;
 
       case "right":
-        while (driveEncoder.getDistance() < distance) {
+        while (Math.abs(driveEncoder.getDistance()) < distance) {
           moveMecanumDrive(0, -speed, 0);
         }
         driveEncoder.reset();
@@ -91,7 +92,7 @@ public class DriveTrain extends Subsystem {
         break;
     }
   }
-
+  //This (probably) doesn't work
   public void turnRobot(String direction, double angle, double speed) {
     imu.reset();
     switch (direction) {
