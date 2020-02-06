@@ -28,18 +28,24 @@ public class DriveRobot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double joystickMovementSpeed = Robot.oi.joystick.getX()*.5;
-    double joystickStrafeSpeed = Robot.oi.joystick.getY()*.5;
-    double joystickTurnSpeed = Robot.oi.joystick.getZ()*.5;
+    //double joystickMovementSpeed = Robot.oi.joystick.getY();
+    //double joystickStrafeSpeed = Robot.oi.joystick.getX();
+    //This is how the orginal way was, but it caused the robot 
+    //to move backwards when the joystick was pushed forward
+    //In wpilib the yspeed is the robot's speed along the Yaxis, with right positive
+    //the xspeed is the robot's speed along the Xaxis, with forward positive
+    //We switched the X and the Y so that when the joystick is forward the robot goes forward
+    double joystickMovementSpeed = Robot.oi.joystick.getX();
+    double joystickStrafeSpeed = Robot.oi.joystick.getY();
+    double joystickTurnSpeed = Robot.oi.joystick.getZ();
     double deadzone = 0.2;
-    double turnDeadzone = 0.25;
     if (Math.abs(Robot.oi.joystick.getX()) < deadzone) {
       joystickMovementSpeed = 0;
     }
     if (Math.abs(Robot.oi.joystick.getY()) < deadzone) {
       joystickStrafeSpeed = 0;
     }
-    if (Math.abs(Robot.oi.joystick.getZ()) < turnDeadzone) {
+    if (Math.abs(Robot.oi.joystick.getZ()) < deadzone) {
       joystickTurnSpeed = 0;
     }
     Robot.driveTrain.moveMecanumDrive(joystickStrafeSpeed, joystickMovementSpeed, joystickTurnSpeed);
