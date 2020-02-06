@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.commands.DriveRobot;
 import frc.robot.commands.DriveAcrossLine;
@@ -40,7 +40,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     oi = new OI();
-    //chooser.addDefault("Default Auto", new DriveAcrossLine());
+    //chooser.addDefault("Default Auto", new DriveRobot());
+    chooser.setDefaultOption("Default Auto", new DriveRobot());
   }
 
   /**
