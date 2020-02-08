@@ -14,8 +14,14 @@ import frc.robot.RobotMap;
 import frc.robot.Robot;
 
 public class Arm extends Subsystem {
-  //Create encoder object
+  //Create encoder and relate variables
   public Encoder armEncoder = new Encoder(RobotMap.armEncoderPorts[0], RobotMap.armEncoderPorts[1], false, Encoder.EncodingType.k4X);
+  private static Double wheelDiameter = 6.0/12.0;
+
+  public Arm() {
+    //The distance per pulse used here is for the REV-11-1271 encoder.
+    armEncoder.setDistancePerPulse(wheelDiameter*3.14/2048);
+  }
 
   // Create Motor object
   private PWMVictorSPX liftMotor = new PWMVictorSPX(RobotMap.liftMotor);
