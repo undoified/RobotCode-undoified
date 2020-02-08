@@ -14,7 +14,7 @@ import frc.robot.RobotMap;
 import frc.robot.Robot;
 
 public class Arm extends Subsystem {
-  //Create encoder and relate variables
+  //Create encoder and related variables
   public Encoder armEncoder = new Encoder(RobotMap.armEncoderPorts[0], RobotMap.armEncoderPorts[1], false, Encoder.EncodingType.k4X);
   private static Double wheelDiameter = 6.0/12.0;
 
