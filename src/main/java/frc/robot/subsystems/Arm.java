@@ -29,6 +29,7 @@ public class Arm extends Subsystem {
   public Arm() {
     //The distance per pulse used here is for the REV-11-1271 encoder.
     armEncoder.setDistancePerPulse(wheelDiameter*3.14/2048);
+    brakeServo.setAngle(0);
   }
 
   @Override
