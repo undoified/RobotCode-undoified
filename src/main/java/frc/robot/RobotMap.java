@@ -31,7 +31,6 @@ public class RobotMap {
   public static int leftBackMotor = 4;
   
   //DIO
-  public static int[] encoderPorts = {0, 1};
   
   //CAN
 
