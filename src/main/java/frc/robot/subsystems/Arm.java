@@ -23,7 +23,7 @@ public class Arm extends Subsystem {
   private PWMVictorSPX liftMotor = new PWMVictorSPX(RobotMap.liftMotor);
 
   //Create a Servo object
-  private Servo stopperServo = new Servo (RobotMap.stopperServo);
+  public Servo brakeServo = new Servo(RobotMap.brakeServo);
 
 
   public Arm() {

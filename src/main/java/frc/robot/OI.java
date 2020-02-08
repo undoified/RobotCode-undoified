@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import frc.robot.commands.DriveAcrossLine;
+import frc.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -48,8 +48,12 @@ public class OI {
 
   public Joystick joystick = new Joystick(0);
   private Button encoderTestButton = new JoystickButton(joystick, 7);
+  private Button brakeOnButton = new JoystickButton(joystick, 10);
+  private Button brakeOffButton = new JoystickButton(joystick, 12);
 
   public OI(){
     encoderTestButton.whenPressed(new DriveAcrossLine());
+    brakeOnButton.whenPressed(new BrakeOn());
+    brakeOffButton.whenPressed(new BrakeOff());
   }  
 }
