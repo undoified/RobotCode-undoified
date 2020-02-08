@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
-
+import edu.wpi.first.wpilibj.PWMVictorSPX;
 import frc.robot.RobotMap;
 import frc.robot.Robot;
 
@@ -22,6 +22,9 @@ public class Arm extends Subsystem {
     //The distance per pulse used here is for the REV-11-1271 encoder.
     armEncoder.setDistancePerPulse(wheelDiameter*3.14/2048);
   }
+
+  // Create Motor object
+  private PWMVictorSPX liftMotor = new PWMVictorSPX(RobotMap.liftMotor);
 
   @Override
   public void initDefaultCommand() {
