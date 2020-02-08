@@ -35,7 +35,7 @@ public class DriveTrain extends Subsystem {
   public ADIS16470_IMU imu = new ADIS16470_IMU();
 
   //Create encoder objects
-  public Encoder driveEncoder = new Encoder(RobotMap.encoderPorts[0], RobotMap.encoderPorts[1], false, Encoder.EncodingType.k4X);
+  public Encoder driveEncoder = new Encoder(RobotMap.driveEncoderPorts[0], RobotMap.driveEncoderPorts[1], false, Encoder.EncodingType.k4X);
 
   //Create motor controller objects
   private VictorSP leftFrontMotor = new VictorSP(RobotMap.leftFrontMotor);
