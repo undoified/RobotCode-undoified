@@ -8,6 +8,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.DriverStation;
+
 import frc.robot.Robot;
 
 public class BrakeOn extends Command {
@@ -25,7 +27,11 @@ public class BrakeOn extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.arm.brakeServo.setAngle(180);
+    if (Robot.arm.liftMotor.getSpeed() == 0) {
+      Robot.arm.brakeServo.setAngle(180);
+    } else {
+      DriverStation.reportWarning("You can not engage the break while you are moving the lift!", false);
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

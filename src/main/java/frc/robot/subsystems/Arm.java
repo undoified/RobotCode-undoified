@@ -17,10 +17,10 @@ import frc.robot.Robot;
 public class Arm extends Subsystem {
   //Create encoder and related variables
   public Encoder armEncoder = new Encoder(RobotMap.armEncoderPorts[0], RobotMap.armEncoderPorts[1], false, Encoder.EncodingType.k4X);
-  private static Double wheelDiameter = 6.0/12.0;
+  private static final Double wheelDiameter = 6.0/12.0;
   
   // Create Motor object
-  private PWMVictorSPX liftMotor = new PWMVictorSPX(RobotMap.liftMotor);
+  public PWMVictorSPX liftMotor = new PWMVictorSPX(RobotMap.liftMotor);
 
   //Create a Servo object
   public Servo brakeServo = new Servo(RobotMap.brakeServo);
