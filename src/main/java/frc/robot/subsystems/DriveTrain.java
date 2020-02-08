@@ -46,8 +46,8 @@ public class DriveTrain extends Subsystem {
   private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
   public DriveTrain() {
-    //The distance per pulse used here is for the REV-11-1271 encoder.
-    driveEncoder.setDistancePerPulse(wheelDiameter*3.14/2048);
+    //The distance per pulse used here is for the am-3749 encoder.
+    driveEncoder.setDistancePerPulse(wheelDiameter*3.14/1024);
   }
 
 
