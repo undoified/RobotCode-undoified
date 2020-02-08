@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
+import edu.wpi.first.wpilibj.Servo;
 import frc.robot.RobotMap;
 import frc.robot.Robot;
 
@@ -20,6 +21,9 @@ public class Arm extends Subsystem {
   
   // Create Motor object
   private PWMVictorSPX liftMotor = new PWMVictorSPX(RobotMap.liftMotor);
+
+  //Create a Servo object
+  private Servo stopperServo = new Servo (RobotMap.stopperServo);
 
 
   public Arm() {
