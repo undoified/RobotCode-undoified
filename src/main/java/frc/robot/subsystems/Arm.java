@@ -9,13 +9,16 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
-
+import edu.wpi.first.wpilibj.PWMVictorSPX;
 import frc.robot.RobotMap;
 import frc.robot.Robot;
 
 public class Arm extends Subsystem {
   //Create encoder object
   public Encoder armEncoder = new Encoder(RobotMap.armEncoderPorts[0], RobotMap.armEncoderPorts[1], false, Encoder.EncodingType.k4X);
+
+  // Create Motor object
+  private PWMVictorSPX liftMotor = new PWMVictorSPX(RobotMap.liftMotor);
 
   @Override
   public void initDefaultCommand() {
