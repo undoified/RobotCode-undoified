@@ -9,15 +9,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.DriverStation;
-import com.analog.adis16470.frc.ADIS16470_IMU;
 
 import frc.robot.RobotMap;
-import frc.robot.Robot;
+//import frc.robot.Robot;
 import frc.robot.commands.DriveRobot;
 
 /**
@@ -28,14 +24,6 @@ import frc.robot.commands.DriveRobot;
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-
-  private static final Double wheelDiameter = 6.0/12.0;
-
-  //Create IMU object
-  public ADIS16470_IMU imu = new ADIS16470_IMU();
-
-  //Create encoder objects
-  public Encoder driveEncoder = new Encoder(RobotMap.driveEncoderPorts[0], RobotMap.driveEncoderPorts[1], false, Encoder.EncodingType.k4X);
 
   //Create motor controller objects
   private WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(RobotMap.leftFrontMotor);
@@ -50,14 +38,11 @@ public class DriveTrain extends Subsystem {
   leftBackMotor.setInverted(true);
   rightFrontMotor.setInverted(true);
   rightBackMotor.setInverted(true);
-    
-   //The distance per pulse used here is for the am-3749 encoder.
-   driveEncoder.setDistancePerPulse(wheelDiameter*3.14/1024);
   }
 
 
   public void moveMecanumDrive(double movementSpeed, double strafeSpeed, double turningSpeed){
-    mecanumDrive.driveCartesian(-strafeSpeed, movementSpeed, -turningSpeed);
+    mecanumDrive.driveCartesian(-strafeSpeed, movementSpeed, turningSpeed);
   }
 
 

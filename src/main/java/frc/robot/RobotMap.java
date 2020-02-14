@@ -25,16 +25,13 @@ public class RobotMap {
   // public static int rangefinderModule = 1;
   
   //CAN
-  public static int rightFrontMotor = 0;
-  public static int rightBackMotor = 1;
-  public static int leftFrontMotor = 2;
-  public static int leftBackMotor = 3;
-  public static int liftMotor = 5;
+  public static int rightFrontMotor = 1;
+  public static int rightBackMotor = 2;
+  public static int leftFrontMotor = 3;
+  public static int leftBackMotor = 4;
   
   //DIO
-  public static int[] driveEncoderPorts = {0, 1};
-  public static int[] armEncoderPorts = {2, 3};
   
-  //PWM
-  public static int brakeServo = 6;
+  //CAN
+
 }
