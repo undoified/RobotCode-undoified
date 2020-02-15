@@ -31,7 +31,10 @@ public class RobotMap {
   public static int leftBackMotor = 4;
   
   //DIO
+  public static int[] driveEncoderPorts = {0, 1};
+  public static int[] armEncoderPorts = {2, 3};
   
-  //CAN
-
+  //PWM
+  public static int liftMotor = 5;
+  public static int brakeServo = 6;
 }
