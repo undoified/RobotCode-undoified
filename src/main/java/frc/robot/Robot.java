@@ -53,6 +53,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     SmartDashboard.putNumber("Drive Train Encoder Distance", driveTrain.driveEncoder.getDistance());
     SmartDashboard.putNumber("Arm Encoder Distance", arm.armEncoder.getDistance());
+    SmartDashboard.putNumber("Talon Position", driveTrain.talonEncoder.getSelectedSensorPosition());
   }
 
   /**
