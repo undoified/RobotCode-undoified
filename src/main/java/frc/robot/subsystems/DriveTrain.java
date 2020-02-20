@@ -33,22 +33,21 @@ public class DriveTrain extends Subsystem {
   //Create IMU object
   public ADIS16470_IMU imu = new ADIS16470_IMU();
 
-  //Create encoder objects
-  public Encoder driveEncoder = new Encoder(RobotMap.driveEncoderPorts[0], RobotMap.driveEncoderPorts[1], false, Encoder.EncodingType.k4X);
-
   //Create motor controller objects
   private WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(RobotMap.leftFrontMotor);
   private WPI_TalonSRX leftBackMotor = new WPI_TalonSRX(RobotMap.leftBackMotor);
   private WPI_TalonSRX rightFrontMotor = new WPI_TalonSRX(RobotMap.rightFrontMotor);
   private WPI_TalonSRX rightBackMotor = new WPI_TalonSRX(RobotMap.rightBackMotor);
+
+  //Create encoder objects
   public WPI_TalonSRX talonEncoder = rightBackMotor;
 
   private MecanumDrive mecanumDrive = new MecanumDrive(leftFrontMotor, leftBackMotor, rightFrontMotor, rightBackMotor);
 
   public DriveTrain() {
     //The distance per pulse used here is for the am-3749 encoder.
-    driveEncoder.setDistancePerPulse(wheelDiameter*3.14/1024);
     talonEncoder.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative, 0, 10);
+    talonEncoder.setSelectedSensorPosition(0);
   }
 
 
@@ -57,35 +56,35 @@ public class DriveTrain extends Subsystem {
   }
 
   public void driveToPoint(String direction, double distance, double speed) {
-    driveEncoder.reset();
+    talonEncoder.setSelectedSensorPosition(0);
     switch (direction) {
       //The left and right speed values may be incorrect
       case "forward":
         while (Math.abs(talonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(speed, 0, 0);
         }
-        driveEncoder.reset();
+        talonEncoder.setSelectedSensorPosition(0);
         break;
 
       case "backward":
         while (Math.abs(talonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(-speed, 0, 0);
         }
-        driveEncoder.reset();
+        talonEncoder.setSelectedSensorPosition(0);
         break;
 
       case "left":
         while (Math.abs(talonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(0, speed, 0);
         }
-        driveEncoder.reset();
+        talonEncoder.setSelectedSensorPosition(0);
         break;
 
       case "right":
         while (Math.abs(talonEncoder.getSelectedSensorPosition()) < distance) {
           moveMecanumDrive(0, -speed, 0);
         }
-        driveEncoder.reset();
+        talonEncoder.setSelectedSensorPosition(0);
         break;
 
       default:
